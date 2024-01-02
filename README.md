@@ -1,4 +1,4 @@
-# Easygenerator-Assignment
+# Authentication-app
 
 This project contains both backend and frontend services i.e. `authentication-service` and `client-service`.
 
