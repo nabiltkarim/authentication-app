@@ -1,0 +1,42 @@
+version: "3"
+services:
+  users-db:
+    image: mongo
+    restart: always
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_DATABASE: easygenerator-users
+    volumes:
+      - ./mongo-data:/var/lib/mongodb/data
+
+  authentication:
+    build:
+      context: ./authentication-service
+    entrypoint:
+      - /bin/bash
+      - -c
+      - "./wait && node dist/main"
+    restart: always
+    ports:
+      - "3000:3000"
+    environment:
+      MONGO_URI: mongodb://users-db:27017/easygenerator-users
+      JWT_SECRET: 0sKqflfkNOVEIVRKb8ssnElamkjJfqju06R0PXBn
+    depends_on:
+      - users-db
+
+  client:
+    build:
+      context: ./client-service
+    restart: always
+    ports:
+      - "8080:8080"
+    stdin_open: true
+    environment:
+      REACT_APP_AUTHENTICATION_API: http://localhost:3000
+    volumes:
+      - ./client-service:/usr/src/app/client-service
+      - /usr/src/app/client-service/node_modules
+    depends_on:
+      - authentication
