@@ -3,10 +3,10 @@ import { FC, ReactNode } from 'react'
 
 const classes = {
   container: cntl`
-    flex h-screen bg-white p-4
+    flex h-screen bg-white
   `,
   content: cntl`
-    flex flex-col w-full md:w-3/5
+    flex flex-col w-full md:w-3/5 p-4
   `,
   certified: cntl`
     absolute bottom-4 right-4 text-white
