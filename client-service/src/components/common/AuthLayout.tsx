@@ -3,7 +3,7 @@ import { FC, ReactNode } from 'react'
 
 const classes = {
   container: cntl`
-    flex h-screen bg-white
+    flex h-screen bg-white p-4
   `,
   content: cntl`
     flex flex-col w-full md:w-3/5

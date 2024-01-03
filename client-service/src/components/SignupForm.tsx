@@ -19,10 +19,10 @@ const classes = {
     md:justify-between md:px-12
   `,
   headerCtaContainer: cntl`
-    flex flex-row items-center
+    flex flex-col md:flex-row items-center
   `,
   headerCtaLabel: cntl`
-    text-gray-500 text-sm mr-4
+    text-gray-500 text-xs mb-2 md:text-sm md:mr-4
   `,
   headerCta: cntl`
     border !text-black border-gray-200 

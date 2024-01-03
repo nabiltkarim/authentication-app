@@ -9,7 +9,7 @@ import { Method } from '../types/hooks'
 
 const classes = {
   container: cntl`
-    flex h-screen bg-white flex-col w-full
+    flex h-screen bg-white flex-col w-full p-4
   `,
   logo: cntl`
     flex pt-12 md:px-12 justify-between
